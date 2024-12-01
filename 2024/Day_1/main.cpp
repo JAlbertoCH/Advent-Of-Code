@@ -46,6 +46,14 @@ int main() {
 
     std::cout << "Sum of the absolute value of the differences between the sorted arrays: " << sumDiffs << std::endl;
 
+    // Sum the value of array1 entries multiplies by the number of instances in array2
+    int similarity = 0;
+    for (size_t i = 0; i < array1.size(); ++i) {
+        similarity = similarity + array1[i] * std::count(array2.begin(), array2.end(), array1[i]);
+    }
+
+    std::cout << "Sum of the absolute value of the differences between the sorted arrays: " << similarity << std::endl;
+
     std::cout << "Challenge completed successfully!" << std::endl;
 
     return 0;
