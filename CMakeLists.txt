@@ -22,4 +22,5 @@ endfunction()
 
 # Add challenges
 add_challenge(2024/Day_1 2024_Day_1)
+add_challenge(2024/Day_2 2024_Day_2)
 # add_challenge(Day_2)
