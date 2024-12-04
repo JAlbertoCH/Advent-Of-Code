@@ -20,7 +20,6 @@ int run_kernel_through_matrix(std::vector<std::string> kernel, std::vector<std::
             
             for (int m = 0; m < kernelRows; ++m) {
                 for (int n = 0; n < kernelCols; ++n) {
-                    // Apply NXOR between the matrix and kernel values
                     if (matrix[i + m][j + n] != kernel[m][n] && kernel[m][n] != ' ') {
                         match = false;
                         break;
@@ -31,7 +30,6 @@ int run_kernel_through_matrix(std::vector<std::string> kernel, std::vector<std::
                 }
             }
             
-            // Check if the number of matches meets the threshold
             if (match) {
                 matchCount++;
             }
