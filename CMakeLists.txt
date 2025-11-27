@@ -21,4 +21,4 @@ function(add_challenge folder name)
 endfunction()
 
 # Add challenges
-add_challenge(2024/Day_13 2024_Day_13)
+add_challenge(2024/Day_24 2024_Day_24)

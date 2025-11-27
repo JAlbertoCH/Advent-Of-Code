@@ -1,0 +1,22 @@
+Register A: 25986278
+Register B: 0
+Register C: 0
+
+Program: 2,4,1,4,7,5,4,1,1,4,5,5,0,3,3,0
+
+A a
+B (((a%8 ^ 4) ^ (a/(2**(a%8 ^ 4)))) ^4)
+C a/(2**(a%8 ^ 4))
+
+A a
+B ((a%8 ^ 4) ^ (a >> (a%8 ^ 4)) ^ 4) % 8
+C a >> (a%8 ^ 4)
+
+
+a_prev = 0
+
+
+a >= (a_prev==0) + a_prev * 8;
+a -> output = desired_output
+
+
