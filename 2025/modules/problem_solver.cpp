@@ -41,15 +41,13 @@ void Day1Solver::solve() {
         
         if (dial_value == 0){
             // The dial hit zero.
-            cout << "ZERO_Count: Dial movement: " << dial_movement << ", Dial value: " << dial_value<< ", Full rotations: " << full_rotations<< endl;
             zero_count++;
         }else if (dial_value + 100 * (dial_value < 0)  - dial_movement < 0 || dial_value + 100 * (dial_value < 0)  - dial_movement > 100){
             // The dial has passed through zero.
-            cout << "ZERO_PASS: Dial movement: " << dial_movement << ", Dial value: " << dial_value<< ", Full rotations: " << full_rotations<< endl;
             zero_passes++;
         }
         if (full_rotations > 0){
-            cout << "FULL_ROT: Dial movement: " << dial_movement << ", Dial value: " << dial_value<< ", Full rotations: " << full_rotations<< endl;
+            // Full rotations
             zero_passes += abs(full_rotations) - (dial_movement == 0 && dial_value == 0 ? 1 : 0);
         }
     }
