@@ -7,18 +7,7 @@ project(MyChallenges VERSION 1.0)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Helper function to simplify adding challenges
-function(add_challenge folder name)
-    # Use the full path to the source file
-    set(SOURCE_FILE ${CMAKE_SOURCE_DIR}/${folder}/main.cpp)
-    
-    if (EXISTS ${SOURCE_FILE})
-        add_executable(${name} ${SOURCE_FILE})
-        set_target_properties(${name} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/${folder})
-    else()
-        message(FATAL_ERROR "Source file not found: ${SOURCE_FILE}")
-    endif()
-endfunction()
+file(GLOB MODULES_SOURCES 2025/modules/*.cpp)
+file(GLOB MODULES_HEADERS 2025/modules/*.h)
 
-# Add challenges
-add_challenge(2024/Day_24 2024_Day_24)
+add_executable(2025_challenges 2025/main.cpp ${MODULES_SOURCES} ${MODULES_HEADERS})
