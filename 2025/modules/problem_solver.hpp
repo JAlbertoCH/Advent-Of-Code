@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 
 /**
 * @class ProblemSolver
@@ -25,6 +26,25 @@ class Day1Solver : public ProblemSolver {
         int dial_value;
         size_t zero_count;
         size_t zero_passes;
+    public:
+        void get_input() override;
+        void solve() override;
+        void get_output() override;
+};
+
+/**
+* @class Day2Solver
+* @brief This is the problem of the second day of the Advent of Code
+* To solve this problem, I will read the input into ranges as pair of strings.
+* The 
+*/
+class Day2Solver : public ProblemSolver {
+    private:
+        std::vector<std::pair<std::string, std::string>> ranges;
+        long long int sum, complete_sum;
+        int get_closest_duplicated_id(std::string bound, bool is_lower);
+        long long int get_invalid_id(long long int duplicate);
+        bool is_invalid_id(long long int id);
     public:
         void get_input() override;
         void solve() override;
