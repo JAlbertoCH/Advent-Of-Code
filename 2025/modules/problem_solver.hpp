@@ -50,3 +50,20 @@ class Day2Solver : public ProblemSolver {
         void solve() override;
         void get_output() override;
 };
+
+/**
+* @class Day3Solver
+* @brief This is the problem of day 3 of the Advent of Code
+* To solve this problem, I will read the input into ranges as pair of strings.
+* The 
+*/
+class Day3Solver : public ProblemSolver {
+    private:
+        std::vector<std::string> banks;
+        long long int sum_part_1, sum_part_2;
+    public:
+        long long int get_joltage_from_bank(std::string bank, int digits=2);
+        void get_input() override;
+        void solve() override;
+        void get_output() override;
+};

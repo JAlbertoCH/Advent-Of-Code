@@ -2,7 +2,7 @@
 
 
 int main(){
-    Day2Solver solver;
+    Day3Solver solver;
     solver.get_input();
     solver.solve();
     solver.get_output();

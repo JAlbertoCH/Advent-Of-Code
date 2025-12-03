@@ -187,3 +187,53 @@ void Day2Solver::get_output(){
     cout << "Sum of invalid IDs (Part 1): " << sum << endl;
     cout << "Sum of invalid IDs (Part 2): " << complete_sum << endl;
 }
+
+/**
+ * @brief This function calculates the joltage from a bank string.
+ * @param bank The bank string.
+ */
+long long int Day3Solver::get_joltage_from_bank(std::string bank, int digits){
+    char upper_digit;
+    int upper_index;
+    long long int lower_joltage = 0;
+
+    if (digits == 0 || bank.length() == 0){
+        return 0;
+    }
+
+    for (size_t i = 0; i < bank.length(); i++){
+        if (bank[i] > upper_digit && i < bank.length()- digits + 1) {
+            upper_digit = bank[i];
+            upper_index = i;
+            continue;
+        }
+    }
+    return (upper_digit - '0') * pow(10, digits - 1) + get_joltage_from_bank(bank.substr(upper_index + 1), digits - 1);
+}
+
+
+void Day3Solver::get_input() {
+    // The input for the second day is the the contents of the input file: input_day_2.txt
+    // To interpret the data from the file, we will convert each line into a pair of strings representing the ranges.
+
+    banks = get_file_input("2025/inputs/input_day_3.txt");
+
+    // Addtionally, the sum must be initialized to 0.
+    sum_part_1=0;
+    sum_part_2=0;
+}
+
+void Day3Solver::solve() {
+    for (size_t i = 0; i < banks.size();  i++){
+        sum_part_1 += get_joltage_from_bank(banks[i]);
+        sum_part_2 += get_joltage_from_bank(banks[i], 12);
+    }
+}
+
+
+void Day3Solver::get_output(){
+    // The final value is the zero count.
+    cout << "Day 3 Solution " << endl;
+    cout << "Sum of joltage (Part 1): " << sum_part_1 << endl;
+    cout << "Sum of joltage (Part 2): " << sum_part_2 << endl;
+}
